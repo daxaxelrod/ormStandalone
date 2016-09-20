@@ -11,9 +11,9 @@ application = get_wsgi_application()
 from ormApp import models
 
 # similar to views.py
-test_object = models.TestClass.objects.create(test_field="initial test field")
+test_object, created = models.TestClass.objects.get_or_create(test_field="initial test field")
 
-print(test_objects)
+print(test_object.test_field)
 
 def create_multiple_test_users(num_to_create):
     for i in num_to_create:
